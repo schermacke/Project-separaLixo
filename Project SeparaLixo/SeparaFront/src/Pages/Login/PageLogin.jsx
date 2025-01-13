@@ -58,7 +58,7 @@ const LoginFormPage = ({ onLogin }) => {
           onLogin();
         }
 
-        navigate("/Home");
+        navigate("/");
         window.location.reload();
       } else {
         setSnackbarMessage("Erro ao realizar login.");

@@ -59,7 +59,7 @@ const ResponsiveAppBar = () => {
           variant="h5"
           noWrap
           component="a"
-          href="/Home"
+          href="/"
           sx={{
             mr: 2,
             display: { xs: "none", md: "flex" },
@@ -102,7 +102,7 @@ const ResponsiveAppBar = () => {
           >
             {loggedIn ? (
               <Grid container spacing={2}>
-                <MenuItem onClick={() => handleNavigate("/Home")}>
+                <MenuItem onClick={() => handleNavigate("/")}>
                   <Typography textAlign="center">Home</Typography>
                 </MenuItem>
                 {loggedRole === "CONTRACTOR" && (
@@ -124,7 +124,7 @@ const ResponsiveAppBar = () => {
               </Grid>
             ) : (
               <Grid container spacing={2}>
-                <MenuItem onClick={() => handleNavigate("/Home")}>
+                <MenuItem onClick={() => handleNavigate("/")}>
                   <Typography textAlign="center">Home</Typography>
                 </MenuItem>
                 <MenuItem onClick={() => handleNavigate("/Entrar")}>
@@ -139,7 +139,7 @@ const ResponsiveAppBar = () => {
           variant="h5"
           noWrap
           component="a"
-          href="/Home"
+          href="/"
           sx={{
             mr: 2,
             display: { xs: "flex", md: "none" },
@@ -164,7 +164,7 @@ const ResponsiveAppBar = () => {
           {loggedIn ? (
             <Grid container spacing={1} paddingRight={4}>
               <Button
-                onClick={() => handleNavigate("/Home")}
+                onClick={() => handleNavigate("/")}
                 variant="outlined"
               >
                 Home
@@ -198,7 +198,7 @@ const ResponsiveAppBar = () => {
           ) : (
             <Grid container spacing={1} paddingRight={4}>
               <Button
-                onClick={() => handleNavigate("/Home")}
+                onClick={() => handleNavigate("/")}
                 variant="outlined"
               >
                 Home

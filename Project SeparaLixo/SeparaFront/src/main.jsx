@@ -83,7 +83,6 @@ function Main() {
             <ScrollToTop />
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/Home" element={<Home />} />
               <Route path="/Entrar" element={<LoginFormPage />} />
               <Route path="/CriarConta" element={<UserFormPage />} />
               <Route path="/RecuperarConta" element={<PasswordReset />} />
