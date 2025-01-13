@@ -8,8 +8,6 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
-const apiUrl = import.meta.env.REACT_APP_API_URL;
-
 
 const AdminPage = () => {
   const [babas, setBabas] = useState([]);
@@ -17,7 +15,7 @@ const AdminPage = () => {
 
   const fetchBabas = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/api/babas`);
+      const response = await axios.get(`https://separalixoback.onrender.com/api/babas`);
       setBabas(response.data);
     } catch (error) {
       console.error("Erro ao buscar babás", error);

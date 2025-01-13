@@ -12,7 +12,8 @@ import {
   Card,
 } from "@mui/material";
 import PropTypes from "prop-types";
-const apiUrl = import.meta.env.REACT_APP_API_URL;
+
+
 
 const LoginFormPage = ({ onLogin }) => {
   const [email, setEmail] = useState("");
@@ -44,7 +45,7 @@ const LoginFormPage = ({ onLogin }) => {
 
     try {
       const response = await axios.post(
-        `${apiUrl}/api/login`,
+        `https://separalixoback.onrender.com/api/login`,
         credentials
       );
       if (response.status === 200) {

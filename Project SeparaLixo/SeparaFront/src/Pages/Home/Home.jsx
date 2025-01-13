@@ -11,7 +11,6 @@ import {
 import axios from "axios";
 import BackgroundSection from "./BackgroundSection";
 import BottomHome from "./BottomHome";
-const apiUrl = import.meta.env.REACT_APP_API_URL;
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -20,7 +19,7 @@ function Home() {
 
   const fetchBabas = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/api/babas`);
+      const response = await axios.get(`https://separalixoback.onrender.com/api/babas`);
       setBabas(response.data);
     } catch (error) {
       console.error("Erro ao buscar babás", error);

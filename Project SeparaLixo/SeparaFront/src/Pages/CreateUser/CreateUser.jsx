@@ -16,7 +16,7 @@ import {
   FormControlLabel,
 } from "@mui/material";
 import TermsOfUseModal from "./termsOfUse/TermsOfUseModal";
-const apiUrl = import.meta.env.REACT_APP_API_URL;
+
 
 
 const UserFormPage = () => {
@@ -76,8 +76,8 @@ const UserFormPage = () => {
     try {
       const endpoint =
         role === "BABA"
-          ? `${apiUrl}/api/babas`
-          : `${apiUrl}/api/contratantes`;
+          ? `https://separalixoback.onrender.com/api/babas`
+          : `https://separalixoback.onrender.com/api/contratantes`;
 
       const response = await axios.post(endpoint, formData);
 
