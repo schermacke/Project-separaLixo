@@ -47,7 +47,7 @@ const ResponsiveAppBar = () => {
     setLoggedIn(false);
     setLoggedRole(false);
 
-    navigate("/Entrar");
+    navigate("/");
     window.location.reload();
   };
 
