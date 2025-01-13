@@ -3,6 +3,8 @@ import { Button, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+const apiUrl = import.meta.env.REACT_APP_API_URL;
+
 
 const ResetPasswordFinally = () => {
   const { token } = useParams();
@@ -26,7 +28,7 @@ const ResetPasswordFinally = () => {
     }
 
     try {
-      await axios.post(`http://localhost:3000/api/reset-password/${token}`, {
+      await axios.post(`${apiUrl}/api/reset-password/${token}`, {
         newPassword,
       });
 

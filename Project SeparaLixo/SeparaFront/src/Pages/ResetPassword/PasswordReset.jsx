@@ -3,6 +3,7 @@ import axios from "axios";
 import { Button, TextField, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import { useNavigate } from "react-router-dom";
+const apiUrl = import.meta.env.REACT_APP_API_URL;
 
 const PasswordReset = () => {
   const [email, setEmail] = useState("");
@@ -14,7 +15,7 @@ const PasswordReset = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3000/sendEmail", {
+      const response = await axios.post(`${apiUrl}/sendEmail`, {
         userEmail: email,
       });
 
