@@ -17,7 +17,7 @@ function Home() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [babas, setBabas] = useState([]);
 
-  const fetchBabas = async () => {
+  /*const fetchBabas = async () => {
     try {
       const response = await axios.get(`https://separalixoback.onrender.com/api/babas`);
       setBabas(response.data);
@@ -26,7 +26,7 @@ function Home() {
     } finally {
       setLoading(false); // Carregamento finalizado
     }
-  };
+  };*/
 
   useEffect(() => {
     const userId = localStorage.getItem("userId");
