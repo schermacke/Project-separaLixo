@@ -10,11 +10,7 @@ import bcrypt from "bcrypt";
 const app = express();
 const prisma = new PrismaClient();
 
-app.use(
-  cors({
-    origin: ["http://localhost:5173"],
-  })
-);
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(express.json());
@@ -138,10 +134,33 @@ app.post(`/api/reset-password/:token`, async (req, res) => {
 
 // Criar usuário
 app.post("/api/babas", async (req, res) => {
-  const { email, name, password, whatsapp, role, street, neighborhood, number, city, zipCode, state } = req.body;
+  const {
+    email,
+    name,
+    password,
+    whatsapp,
+    role,
+    street,
+    neighborhood,
+    number,
+    city,
+    zipCode,
+    state,
+  } = req.body;
 
   try {
-    if (!email || !name || !password || !role || !street || !neighborhood || !number || !city || !zipCode || !state) {
+    if (
+      !email ||
+      !name ||
+      !password ||
+      !role ||
+      !street ||
+      !neighborhood ||
+      !number ||
+      !city ||
+      !zipCode ||
+      !state
+    ) {
       return res
         .status(400)
         .json({ error: "Por favor, preencha todos os campos obrigatórios" });
@@ -173,10 +192,34 @@ app.post("/api/babas", async (req, res) => {
 });
 
 app.post("/api/contratantes", async (req, res) => {
-  const { email, name, password, whatsapp, role, street, neighborhood, number, city, zipCode, state } = req.body;
+  const {
+    email,
+    name,
+    password,
+    whatsapp,
+    role,
+    street,
+    neighborhood,
+    number,
+    city,
+    zipCode,
+    state,
+  } = req.body;
 
   try {
-    if (!email || !name || !password || !whatsapp || !role || !street || !neighborhood || !number || !city || !zipCode || !state) {
+    if (
+      !email ||
+      !name ||
+      !password ||
+      !whatsapp ||
+      !role ||
+      !street ||
+      !neighborhood ||
+      !number ||
+      !city ||
+      !zipCode ||
+      !state
+    ) {
       return res
         .status(400)
         .json({ error: "Por favor, preencha todos os campos obrigatórios." });
@@ -276,6 +319,6 @@ app.get("/api/babas", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Server is listening on port 3000");
+app.listen(process.env.PORT ? Number(process.env.PORT) : 3333, '0.0.0.0', () => {
+  console.log("HTTP server is running on port " + (process.env.PORT || 3333));
 });
