@@ -47,7 +47,7 @@ function MyProfile() {
   const handleSave = async () => {
     try {
       const token = localStorage.getItem("authToken");
-      await axios.put("http://localhost:3000/api/profile", editedData, {
+      await axios.put("https://separalixoback.onrender.com/api/profile", editedData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
