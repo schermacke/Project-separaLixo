@@ -3,6 +3,15 @@ import Grid from "@mui/material/Grid2";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import EmailIcon from "@mui/icons-material/Email";
+import {
+  Recycling,
+  Nature,
+  CheckCircle,
+  LocalFlorist,
+  WaterDrop,
+  EnergySavingsLeaf,
+  LocationOn,
+} from "@mui/icons-material";
 
 function BottomHome() {
   return (
@@ -56,7 +65,73 @@ function BottomHome() {
 
       <Divider sx={{ my: 10, bgcolor: "primary.main" }} />
 
-      <Box id="contact" sx={{ py: 28 }}>
+      <Box id="benefits" sx={{ py: 15, textAlign: "center" }}>
+        <Typography variant="h4" gutterBottom>
+          Benefícios do Descarte Correto
+        </Typography>
+
+        <Grid container spacing={4} justifyContent="center" paddingTop={10}>
+          <Grid item xs={12} sm={6} md={4}>
+            <Box textAlign="center">
+              <Recycling color="success" sx={{ fontSize: 60 }} />
+              <Typography variant="h6">Reduz Poluição</Typography>
+              <Typography color="textSecondary">
+                Evita o acúmulo de resíduos em aterros sanitários.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Box textAlign="center">
+              <Nature color="success" sx={{ fontSize: 60 }} />
+              <Typography variant="h6">Protege a Natureza</Typography>
+              <Typography color="textSecondary">
+                Contribui para a preservação da fauna e flora.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4}>
+            <Box textAlign="center">
+              <CheckCircle color="success" sx={{ fontSize: 60 }} />
+              <Typography variant="h6">Economiza Recursos</Typography>
+              <Typography color="textSecondary">
+                Permite a reutilização de materiais recicláveis.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} paddingTop={5}>
+            <Box textAlign="center">
+              <LocalFlorist color="success" sx={{ fontSize: 60 }} />
+              <Typography variant="h6">Melhora a Qualidade do Solo</Typography>
+              <Typography color="textSecondary">
+                A reciclagem ajuda a reduzir a contaminação do solo com
+                resíduos.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} paddingTop={5}>
+            <Box textAlign="center">
+              <WaterDrop color="success" sx={{ fontSize: 60 }} />
+              <Typography variant="h6">Preserva Recursos Hídricos</Typography>
+              <Typography color="textSecondary">
+                Diminui a poluição em rios e lagos, mantendo a água limpa.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} paddingTop={5}>
+            <Box textAlign="center">
+              <EnergySavingsLeaf color="success" sx={{ fontSize: 60 }} />
+              <Typography variant="h6">Economia de Energia</Typography>
+              <Typography color="textSecondary">
+                Reduz a necessidade de produzir novos materiais.
+              </Typography>
+            </Box>
+          </Grid>
+        </Grid>
+      </Box>
+
+      <Divider sx={{ my: 10, bgcolor: "primary.main" }} />
+
+      <Box id="contact" sx={{ py: 15 }}>
         <Grid
           item
           display={"flex"}
@@ -125,6 +200,37 @@ function BottomHome() {
             />
             Telegram
           </Button>
+        </Grid>
+        <Grid sx={{ paddingTop: 5 }}>
+          <Typography variant="h4" gutterBottom>
+            Ecopontos Próximos
+          </Typography>
+          <Grid
+            container
+            spacing={2}
+            paddingTop={1}
+            display={"flex"}
+            justifyContent={"center"}
+          >
+            <Grid item xs={12} sm={6}>
+              <Box display="flex" alignItems="center">
+                <LocationOn color="primary" />
+                <Typography sx={{ ml: 2 }}>
+                  <strong>Ecoponto Central:</strong> Rua das Flores, 123 -
+                  Centro
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Box display="flex" alignItems="center">
+                <LocationOn color="primary" />
+                <Typography sx={{ ml: 2 }}>
+                  <strong>Ecoponto Norte:</strong> Av. Principal, 456 - Bairro
+                  Norte
+                </Typography>
+              </Box>
+            </Grid>
+          </Grid>
         </Grid>
       </Box>
       <Grid

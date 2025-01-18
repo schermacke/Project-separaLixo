@@ -70,7 +70,7 @@ const TermsOfUseModal = ({ open, handleClose }) => {
             mudanças. 7. Lei Aplicável Este Termo de Uso será regido e
             interpretado de acordo com as leis do Brasil. 8. Contato Se você
             tiver alguma dúvida ou preocupação sobre estes Termos de Uso, entre
-            em contato conosco através do e-mail [babawebsmtp@gmail.com].
+            em contato conosco através do e-mail [separalixosustentavel@gmail.com].
           </Typography>
           <Grid item display={"flex"} justifyContent={"center"} alignItems={"center"} gap={2}>
             <Button

@@ -163,10 +163,7 @@ const ResponsiveAppBar = () => {
         >
           {loggedIn ? (
             <Grid container spacing={1} paddingRight={4}>
-              <Button
-                onClick={() => handleNavigate("/")}
-                variant="outlined"
-              >
+              <Button onClick={() => handleNavigate("/")} variant="outlined">
                 Home
               </Button>
               {loggedRole === "CONTRACTOR" && (
@@ -197,10 +194,7 @@ const ResponsiveAppBar = () => {
             </Grid>
           ) : (
             <Grid container spacing={1} paddingRight={4}>
-              <Button
-                onClick={() => handleNavigate("/")}
-                variant="outlined"
-              >
+              <Button onClick={() => handleNavigate("/")} variant="outlined">
                 Home
               </Button>
               <Button

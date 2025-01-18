@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import {
-  Grid,
   Box,
   Button,
   TextField,
@@ -14,10 +13,10 @@ import {
   Select,
   Switch,
   FormControlLabel,
+  Grid2,
 } from "@mui/material";
+import Grid from "@mui/material/Grid2";
 import TermsOfUseModal from "./termsOfUse/TermsOfUseModal";
-
-
 
 const UserFormPage = () => {
   const [formData, setFormData] = useState({
@@ -233,8 +232,8 @@ const UserFormPage = () => {
                 value={formData.role}
                 onChange={(e) => handleInputChange("role", e.target.value)}
               >
-                <MenuItem value="BABA">Babá</MenuItem>
-                <MenuItem value="CONTRACTOR">Contratante</MenuItem>
+                <MenuItem value="BABA">Cliente</MenuItem>
+                <MenuItem value="CONTRACTOR">Administrador</MenuItem>
               </Select>
             </FormControl>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>

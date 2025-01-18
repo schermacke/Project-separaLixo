@@ -67,11 +67,11 @@ function Main() {
         }
       >
         {themeSelected === "dark" ? (
-          <Fab color="primary" size="medium">
+          <Fab color="warning" size="medium">
             <FaSun fontSize={35} color="rgb(251, 255, 0)" />
           </Fab>
         ) : (
-          <Fab color="primary" size="medium">
+          <Fab color="inherit" size="medium">
             <FaMoon fontSize={35} color="rgb(51, 51, 51)" />
           </Fab>
         )}
