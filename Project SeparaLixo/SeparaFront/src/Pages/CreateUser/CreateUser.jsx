@@ -117,7 +117,7 @@ const UserFormPage = () => {
         container
         justifyContent="center"
         alignItems="center"
-        paddingTop={5}
+        paddingTop={10}
       >
         <Grid item xs={12} md={6}>
           <Typography variant="h4" component="h2" gutterBottom>
