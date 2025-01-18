@@ -36,7 +36,14 @@ const BackgroundSection = () => {
         >
           Sobre
         </Button>
-
+        <Button
+          variant="contained"
+          size="large"
+          color="primary"
+          onClick={() => scrollToSection("benefits")}
+        >
+          Beneficios
+        </Button>
         <Button
           variant="contained"
           size="large"
