@@ -24,7 +24,7 @@ function MyProfile() {
         throw new Error("Token não encontrado. Faça o login.");
       }
 
-      const response = await axios.get("http://localhost:3000/api/profile", {
+      const response = await axios.get("https://separalixoback.onrender.com/api/profile", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
