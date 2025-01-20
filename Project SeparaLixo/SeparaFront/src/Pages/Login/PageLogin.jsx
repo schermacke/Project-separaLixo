@@ -53,7 +53,8 @@ const LoginFormPage = ({ onLogin }) => {
         localStorage.setItem("authToken", token);
         localStorage.setItem("userId", userId);
         localStorage.setItem("userRole", role);
-
+        localStorage.setItem("userName", name);
+        
         if (typeof onLogin === "function") {
           onLogin();
         }

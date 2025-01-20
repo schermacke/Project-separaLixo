@@ -31,6 +31,15 @@ model User {
   resetPasswordExpires DateTime?         
 }
 
+model Agendamento {
+  id                   String      @id @default(auto()) @map("_id") @db.ObjectId
+  userName             String
+  servico              String
+  data                 DateTime
+  optionsPerson        String?
+  criadoEm             DateTime    @default(now())
+}
+
 model Babysitter {
   id            String      @id @default(auto()) @map("_id") @db.ObjectId
   userId        String      @unique

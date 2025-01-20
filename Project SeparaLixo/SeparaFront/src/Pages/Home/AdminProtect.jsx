@@ -46,18 +46,18 @@ const AdminPage = () => {
         </Grid>
       ) : (
         <>
-          <Typography paddingTop={5} variant="h4">
+          <Typography paddingTop={10} variant="h4">
             Lista de Usuários
           </Typography>
           <Grid
             container
-            paddingTop={2}
+            paddingTop={1}
             display={"flex"}
             alignItems={"center"}
             justifyContent={"center"}
           >
             {babas.length > 0 ? (
-              <Box sx={{ padding: 4 }}>
+              <Box sx={{ padding: 2 }}>
                 <Grid container spacing={1}>
                   {babas.map((user) => (
                     <Grid item xs={12} sm={6} md={4} key={user.id}>
@@ -90,7 +90,7 @@ const AdminPage = () => {
                 </Grid>
               </Box>
             ) : (
-              <Typography variant="body1">Nenhuma babá encontrada.</Typography>
+              <Typography variant="body1">Nenhuma usuário encontrado.</Typography>
             )}
           </Grid>
         </>

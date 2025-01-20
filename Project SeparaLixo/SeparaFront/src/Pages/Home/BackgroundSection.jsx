@@ -26,7 +26,7 @@ const BackgroundSection = () => {
         alignItems={"center"}
         justifyContent={"center"}
         gap={2}
-        paddingTop={12}
+        paddingTop={10}
       >
         <Button
           variant="contained"

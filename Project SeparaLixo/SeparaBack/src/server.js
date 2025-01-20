@@ -275,7 +275,9 @@ app.post("/api/login", async (req, res) => {
       expiresIn: "1h",
     });
 
-    res.status(200).json({ token, userId: user.id, role: user.role });
+    res
+      .status(200)
+      .json({ token, userId: user.id, role: user.role, name: user.name });
   } catch (error) {
     console.error("Erro ao fazer login:", error);
     res.status(500).json({ message: "Erro no servidor." });
@@ -319,6 +321,154 @@ app.get("/api/babas", async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT ? Number(process.env.PORT) : 3333, '0.0.0.0', () => {
-  console.log("HTTP server is running on port " + (process.env.PORT || 3333));
+// Rota para obter informaçoes do usuário logado
+app.get("/api/profile", async (req, res) => {
+  try {
+    const token = req.headers.authorization.split(" ")[1];
+    console.log("Token recebido:", token);
+
+    // Verifique se o token existe
+    if (!token) {
+      console.log("Token não encontrado");
+      return res.status(400).json({ message: "Token não encontrado" });
+    }
+
+    const decoded = jwt.verify(token, "seusegredo_jwt");
+    console.log("Token decodificado:", decoded);
+
+    const userId = decoded.userId;
+
+    const {
+      name,
+      email,
+      whatsapp,
+      street,
+      neighborhood,
+      number,
+      city,
+      zipCode,
+      state,
+    } = req.body;
+
+    const updatedUser = await prisma.user.update({
+      where: { id: userId },
+      data: {
+        name,
+        email,
+        whatsapp,
+        street,
+        neighborhood,
+        number,
+        city,
+        zipCode,
+        state,
+      },
+    });
+
+    console.log("Usuário atualizado", updatedUser);
+
+    const user = await prisma.user.findUnique({
+      where: { id: decoded.userId },
+    });
+
+    res.status(200).json({
+      name: user.name,
+      email: user.email,
+      whatsapp: user.whatsapp,
+      role: user.role,
+      street: user.street,
+      neighborhood: user.neighborhood,
+      number: user.number,
+      city: user.city,
+      zipCode: user.zipCode,
+      state: user.state,
+    });
+  } catch (error) {
+    console.error("Erro ao buscar dados do usuário:", error);
+    res.status(500).json({ message: "Erro no servidor", error: error.message });
+  }
+});
+
+app.put("/api/profile", async (req, res) => {
+  try {
+    const tokenHeader = req.headers.authorization;
+
+    if (!tokenHeader) {
+      return res
+        .status(401)
+        .json({ message: "Cabeçalho de autorização ausente." });
+    }
+
+    const token = tokenHeader.split(" ")[1];
+    const decoded = jwt.verify(token, "seusegredo_jwt");
+
+    const {
+      name,
+      email,
+      whatsapp,
+      street,
+      neighborhood,
+      number,
+      city,
+      zipCode,
+      state,
+    } = req.body;
+
+    if (!name || !email) {
+      return res.status(400).json({ message: "nome e email são obrgatórios" });
+    }
+
+    const updatedUser = await prisma.user.update({
+      where: { id: decoded.userId },
+      data: {
+        name,
+        email,
+        whatsapp,
+        street,
+        neighborhood,
+        number,
+        city,
+        zipCode,
+        state,
+      },
+    });
+
+    res
+      .status(200)
+      .json({ message: "Perfil atualizado com sucesso!", user: updatedUser });
+  } catch (error) {
+    console.error("Erro ao atualizar perfil", error);
+    res.status(500).json({
+      message: "Erro ao atualizar perfil",
+      error: error.message,
+    });
+  }
+});
+
+// Endpoint para criar um agendamento
+app.post("/api/agendamento", async (req, res) => {
+  const { userName, servico, data, optionsPerson } = req.body;
+
+  try {
+    const novoAgendamento = await prisma.agendamento.create({
+      data: { userName, servico, data: new Date(data), optionsPerson },
+    });
+    res.status(201).json(novoAgendamento);
+  } catch (error) {
+    res.status(400).json({ error: "Erro ao criar agendamento" });
+  }
+});
+
+// Endpoint para listar agendamentos (para o administrador)
+app.get("/api/agendamentos", async (req, res) => {
+  try {
+    const agendamentos = await prisma.agendamento.findMany();
+    res.json(agendamentos);
+  } catch (error) {
+    res.status(500).json({ error: "Erro ao buscar agendamentos" });
+  }
+});
+
+app.listen(3000, () => {
+  console.log("HTTP server is running on port 3000");
 });

@@ -128,7 +128,7 @@ function Home() {
                       },
                     }}
                   >
-                    Descarte Consciente:
+                    Educação Ambiental:
                     <br /> Cuidando do Planeta com Responsabilidade
                   </Typography>
                   <Typography variant="h5" gutterBottom paddingTop={3}>

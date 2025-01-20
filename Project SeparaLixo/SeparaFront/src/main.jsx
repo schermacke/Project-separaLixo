@@ -29,6 +29,8 @@ import ProtectedRoute from "./Pages/Login/ProtectedRoute.jsx";
 import AdminProtect from "./Pages/Home/AdminProtect.jsx";
 import NotFound from "./Pages/NotFound/NotFound.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import CreateAppointments from "./Pages/appointments/CreateAppointments.jsx";
+import ListAppointments from "./Pages/appointments/ListAppointments.jsx";
 
 function Main() {
   const [themeSelected, setThemeSelected] = useState("light");
@@ -87,6 +89,8 @@ function Main() {
               <Route path="/CriarConta" element={<UserFormPage />} />
               <Route path="/RecuperarConta" element={<PasswordReset />} />
               <Route path="/MeuPerfil" element={<MyProfile />} />
+              <Route path="/Agendamentos" element={<CreateAppointments />} />
+              <Route path="/Agenda" element={<ListAppointments />} />
               <Route
                 path="/reset-password/:token"
                 element={<ResetPasswordFinally />}

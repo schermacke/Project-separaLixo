@@ -24,11 +24,14 @@ function MyProfile() {
         throw new Error("Token não encontrado. Faça o login.");
       }
 
-      const response = await axios.get("https://separalixoback.onrender.com/api/profile", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        "https://separalixoback.onrender.com/api/profile",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       setUserData(response.data);
       setEditedData(response.data);
@@ -47,12 +50,16 @@ function MyProfile() {
   const handleSave = async () => {
     try {
       const token = localStorage.getItem("authToken");
-      await axios.put("https://separalixoback.onrender.com/api/profile", editedData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      });
+      await axios.put(
+        "https://separalixoback.onrender.com/api/profile",
+        editedData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       setMessage("Perfil salvo com sucesso!");
     } catch (error) {
@@ -131,6 +138,7 @@ function MyProfile() {
             <Box key={field.name} sx={{ md: 2, padding: 0.5 }}>
               {isEditing ? (
                 <TextField
+                  size="small"
                   label={field.label}
                   name={field.name}
                   value={editedData[field.name] || ""}

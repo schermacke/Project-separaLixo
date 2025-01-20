@@ -111,8 +111,18 @@ const ResponsiveAppBar = () => {
                   </MenuItem>
                 )}
                 {loggedRole === "CONTRACTOR" && (
+                  <MenuItem onClick={() => handleNavigate("/Agenda")}>
+                    <Typography textAlign="center">Agenda</Typography>
+                  </MenuItem>
+                )}
+                {loggedRole === "CONTRACTOR" && (
                   <MenuItem onClick={() => handleNavigate("/CriarConta")}>
                     <Typography textAlign="center">Nova Conta</Typography>
+                  </MenuItem>
+                )}
+                {loggedRole === "BABA" && (
+                  <MenuItem onClick={() => handleNavigate("/Agendamentos")}>
+                    <Typography textAlign="center">Agendar</Typography>
                   </MenuItem>
                 )}
                 <MenuItem onClick={() => handleNavigate("/MeuPerfil")}>
@@ -176,10 +186,26 @@ const ResponsiveAppBar = () => {
               )}
               {loggedRole === "CONTRACTOR" && (
                 <Button
+                  onClick={() => handleNavigate("/Agenda")}
+                  variant="outlined"
+                >
+                  Agenda
+                </Button>
+              )}
+              {loggedRole === "CONTRACTOR" && (
+                <Button
                   onClick={() => handleNavigate("/CriarConta")}
                   variant="outlined"
                 >
                   Nova Conta
+                </Button>
+              )}
+              {loggedRole === "BABA" && (
+                <Button
+                  onClick={() => handleNavigate("/Agendamentos")}
+                  variant="outlined"
+                >
+                  Agendar
                 </Button>
               )}
               <Button
