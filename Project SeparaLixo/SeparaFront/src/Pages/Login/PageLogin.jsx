@@ -49,7 +49,7 @@ const LoginFormPage = ({ onLogin }) => {
         credentials
       );
       if (response.status === 200) {
-        const { token, userId, role } = response.data;
+        const { token, userId, role, name } = response.data;
         localStorage.setItem("authToken", token);
         localStorage.setItem("userId", userId);
         localStorage.setItem("userRole", role);
