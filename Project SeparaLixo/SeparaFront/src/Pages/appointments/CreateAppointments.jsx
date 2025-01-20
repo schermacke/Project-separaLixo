@@ -27,7 +27,7 @@ const CreateAppointments = () => {
           userName,
           servico,
           data,
-          optionsPerson,
+          optionsPerson
         }
       );
       alert("Agendamento criado com sucesso!");
