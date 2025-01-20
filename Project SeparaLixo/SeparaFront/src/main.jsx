@@ -31,7 +31,6 @@ import NotFound from "./Pages/NotFound/NotFound.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import CreateAppointments from "./Pages/appointments/CreateAppointments.jsx";
 import ListAppointments from "./Pages/appointments/ListAppointments.jsx";
-import { createBrowserRouter } from "react-router-dom";
 
 function Main() {
   const [themeSelected, setThemeSelected] = useState("light");
@@ -43,13 +42,6 @@ function Main() {
         paper: "#252525",
         default: "#252525",
       },
-    },
-  });
-
-  const router = createBrowserRouter(routes, {
-    future: {
-      v7_startTransition: true,
-      v7_relativeSplatPath: true,
     },
   });
 
