@@ -22,7 +22,7 @@ const CreateAppointments = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://separalixoback.onrender.com/api/agendamento",
+        `https://separalixoback.onrender.com/api/agendamento`,
         {
           userName,
           servico,

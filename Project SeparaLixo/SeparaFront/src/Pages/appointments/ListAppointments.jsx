@@ -10,7 +10,7 @@ const ListAppointments = () => {
   const fetchAgendamentos = async () => {
     try {
       const response = await axios.get(
-        "https://separalixoback.onrender.com/api/agendamentos"
+        `https://separalixoback.onrender.com/api/agendamentos`
       );
       setAgendamentos(response.data);
     } catch (error) {
