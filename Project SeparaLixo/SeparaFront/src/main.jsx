@@ -31,6 +31,7 @@ import NotFound from "./Pages/NotFound/NotFound.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import CreateAppointments from "./Pages/appointments/CreateAppointments.jsx";
 import ListAppointments from "./Pages/appointments/ListAppointments.jsx";
+import { createBrowserRouter } from "react-router-dom";
 
 function Main() {
   const [themeSelected, setThemeSelected] = useState("light");
@@ -42,6 +43,13 @@ function Main() {
         paper: "#252525",
         default: "#252525",
       },
+    },
+  });
+
+  const router = createBrowserRouter(routes, {
+    future: {
+      v7_startTransition: true,
+      v7_relativeSplatPath: true,
     },
   });
 
@@ -89,8 +97,6 @@ function Main() {
               <Route path="/CriarConta" element={<UserFormPage />} />
               <Route path="/RecuperarConta" element={<PasswordReset />} />
               <Route path="/MeuPerfil" element={<MyProfile />} />
-              <Route path="/Agendamentos" element={<CreateAppointments />} />
-              <Route path="/Agenda" element={<ListAppointments />} />
               <Route
                 path="/reset-password/:token"
                 element={<ResetPasswordFinally />}
@@ -108,6 +114,22 @@ function Main() {
                 element={
                   <ProtectedRoute role="CONTRACTOR">
                     <AdminProtect />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/Agendamentos"
+                element={
+                  <ProtectedRoute role="CONTRACTOR">
+                    <ListAppointments />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/Agendamento"
+                element={
+                  <ProtectedRoute role="BABA">
+                    <CreateAppointments />
                   </ProtectedRoute>
                 }
               />
