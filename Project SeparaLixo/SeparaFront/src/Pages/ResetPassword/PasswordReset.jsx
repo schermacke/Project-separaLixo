@@ -38,47 +38,62 @@ const PasswordReset = () => {
       display={"flex"}
       justifyContent={"center"}
       alignItems={"center"}
-      paddingTop={15}
+      paddingTop={5}
+      sx={{
+        backgroundImage: `url("/lago.png")`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "100vh",
+      }}
     >
-      <Grid item size={{ xs: 12 }}>
-        <Typography variant="h5" component="h4">
-          Recuperar Senha
-        </Typography>
+      <Grid item size={{ xs: 10, md: 3 }}>
+        <Card
+          variant="outlined"
+          sx={{
+            padding: 2,
+            background: "transparent",
+            backdropFilter: "blur(30px)",
+          }}
+        >
+          <Typography paddingBottom={1} variant="h5" component="h4">
+            Recuperar Senha
+          </Typography>
+
+          <form onSubmit={handleSubmit}>
+            <TextField
+              sx={{ paddingBottom: 2 }}
+              label="Digite seu e-mail"
+              type="email"
+              id="email"
+              size="small"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              fullWidth
+            />
+            <Grid sx={{ paddingBottom: 2 }}>
+              <Button variant="contained" type="submit" fullWidth>
+                Enviar E-mail de Recuperação
+              </Button>
+            </Grid>
+            <Grid>
+              <Button variant="contained" fullWidth onClick={handleGoBack}>
+                Voltar
+              </Button>
+            </Grid>
+          </form>
+          {message && (
+            <Grid item size={{ xs: 10, md: 10 }}>
+              <Typography className="success-message">{message}</Typography>
+            </Grid>
+          )}
+          {error && (
+            <Grid item size={{ xs: 10, md: 10 }}>
+              <Typography className="error-message">{error}</Typography>
+            </Grid>
+          )}
+        </Card>
       </Grid>
-      <Grid item size={{ xs: 12, md: 4 }}>
-        <form onSubmit={handleSubmit}>
-          <TextField
-            sx={{ paddingBottom: 2 }}
-            label="Digite seu e-mail"
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            fullWidth
-          />
-          <Grid sx={{ paddingBottom: 2 }}>
-            <Button variant="contained" type="submit" fullWidth>
-              Enviar E-mail de Recuperação
-            </Button>
-          </Grid>
-          <Grid>
-            <Button variant="contained" fullWidth onClick={handleGoBack}>
-              Voltar
-            </Button>
-          </Grid>
-        </form>
-      </Grid>
-      {message && (
-        <Grid item size={{ xs: 10, md: 10 }}>
-          <Typography className="success-message">{message}</Typography>
-        </Grid>
-      )}
-      {error && (
-        <Grid item size={{ xs: 10, md: 10 }}>
-          <Typography className="error-message">{error}</Typography>
-        </Grid>
-      )}
     </Grid>
   );
 };

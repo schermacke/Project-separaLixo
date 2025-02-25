@@ -52,7 +52,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static" color="transparent">
+    <AppBar position="absolute" color="transparent">
       <Toolbar disableGutters>
         <Typography
           style={{ marginLeft: "35px" }}
@@ -220,12 +220,12 @@ const ResponsiveAppBar = () => {
             </Grid>
           ) : (
             <Grid container spacing={1} paddingRight={4}>
-              <Button onClick={() => handleNavigate("/")} variant="outlined">
+              <Button onClick={() => handleNavigate("/")} variant="contained">
                 Home
               </Button>
               <Button
                 onClick={() => handleNavigate("/Entrar")}
-                variant="outlined"
+                variant="contained"
               >
                 Entrar
               </Button>

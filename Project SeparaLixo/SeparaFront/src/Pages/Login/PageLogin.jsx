@@ -13,8 +13,6 @@ import {
 } from "@mui/material";
 import PropTypes from "prop-types";
 
-
-
 const LoginFormPage = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -54,7 +52,7 @@ const LoginFormPage = ({ onLogin }) => {
         localStorage.setItem("userId", userId);
         localStorage.setItem("userRole", role);
         localStorage.setItem("userName", name);
-        
+
         if (typeof onLogin === "function") {
           onLogin();
         }
@@ -83,10 +81,23 @@ const LoginFormPage = ({ onLogin }) => {
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
-        paddingTop={15}
+        paddingTop={5}
+        sx={{
+          backgroundImage: `url("/lago.png")`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "100vh",
+        }}
       >
-        <Grid item size={{ xs: 12, md: 4 }}>
-          <Card variant="elevation" sx={{ padding: 2, backgroundColor:"rgba(104, 165, 99, 0.03)" }} >
+        <Grid item size={{ xs: 10, md: 3 }}>
+          <Card
+            variant="outlined"
+            sx={{
+              padding: 2,
+              background: "transparent",
+              backdropFilter: "blur(30px)",
+            }}
+          >
             <Grid item>
               <Typography variant="h5" component="h2" gutterBottom>
                 Entrar
